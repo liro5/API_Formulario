@@ -1,28 +1,51 @@
 
 let request = new XMLHttpRequest();
 request.addEventListener("load", listener);
-request.open("GET", "https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json");
+request.open("GET", "http://104.43.223.38/WeatherForecast");
 request.responseType = "json";
 request.send();
 
+document.getElementById("titulo").innerHTML = "Personas";
+document.getElementById("subtitulo").innerHTML = "Lista de Personas";
 
 function listener() {
 
-    let datos = request.response;
-    document.getElementById("titulo").innerHTML = datos.squadName;
-    document.getElementById("subtitulo").innerHTML = datos.homeTown;
-    // document.getElementById("subtitulo").innerHTML = datos.homeTown;
-    
+    let Personas = request.response;
 
-    for (let i = 0; i < datos.members.length; i++) {
-        const Heroe = datos.members[i];
-        
+
+
+    for (let i = 0; i < Personas.length; i++) {
+        const Persona = Personas[i];
+
         let tabla = `<tr>
-        <td scope='row'>`+ Heroe.name + `</td>
-        <td scope='row'>`+ Heroe.age + `</td>
-        <td scope='row'>`+ Heroe.secretIdentity + `</td>
-        <td scope='row'>`+ Heroe.powers + `</td>
+        <td scope='row'>`+ Persona.id + `</td>
+        <td scope='row'>`+ Persona.nombre + `</td>
+        <td scope='row'>`+ Persona.apellido + `</td>
+        <td scope='row'>`+ Persona.direccion + `</td>
+        <td scope='row'>`+ Persona.telefono + `</td>
+        <td scope='row'>`+ Persona.nacimiento + `</td>
         <tr>`
-        document.getElementById("listaHeroes").innerHTML += tabla;
+        document.getElementById("listaPersonas").innerHTML += tabla;
+    }
+}
+
+function Agregar(){
+    let dato = document.getElementById("nombre").value;
+    let dato1 = document.getElementById("apellido").value;
+    let dato2 = document.getElementById("direccion").value;
+    let dato3 = document.getElementById("telefono").value;
+    let dato4 = document.getElementById("nacimiento").value;
+ 
+    document.getElementById("nombre").innerHTML=dato;
+    document.getElementById("nombre").innerHTML=dato1;
+    document.getElementById("nombre").innerHTML=dato2;
+    document.getElementById("nombre").innerHTML=dato3;
+    document.getElementById("nombre").innerHTML=dato4;
+
+    if (dato != 0)  {
+        
+    } else {
+       
+        
     }
 }
