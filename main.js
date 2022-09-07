@@ -1,7 +1,7 @@
 
 let request = new XMLHttpRequest();
 request.addEventListener("load", listener);
-request.open("GET", "http://104.43.223.38/WeatherForecast");
+request.open("GET", "http://104.43.223.38/Personas");
 request.responseType = "json";
 request.send();
 
@@ -42,7 +42,8 @@ function Agregar(){
     document.getElementById("nombre").innerHTML=dato3;
     document.getElementById("nombre").innerHTML=dato4;
 
-    if (dato != 0)  {
+    if (dato
+         != 0)  {
         
     } else {
        
