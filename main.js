@@ -30,17 +30,17 @@ function listener() {
 }
 
 function Agregar(){
-    let dato = document.getElementById("nombre").value;
-    let dato1 = document.getElementById("apellido").value;
-    let dato2 = document.getElementById("direccion").value;
-    let dato3 = document.getElementById("telefono").value;
-    let dato4 = document.getElementById("nacimiento").value;
+    let nombre = document.getElementById("nombre").value;
+    let apellido = document.getElementById("apellido").value;
+    let direccion = document.getElementById("direccion").value;
+    let telefono = document.getElementById("telefono").value;
+    let nacimiento = document.getElementById("nacimiento").value;
  
-    document.getElementById("nombre").innerHTML=dato;
-    document.getElementById("nombre").innerHTML=dato1;
-    document.getElementById("nombre").innerHTML=dato2;
-    document.getElementById("nombre").innerHTML=dato3;
-    document.getElementById("nombre").innerHTML=dato4;
+    //document.getElementById("nombre").innerHTML=dato;
+    //document.getElementById("apellido").innerHTML=dato1;
+    //document.getElementById("direccion").innerHTML=dato2;
+    //document.getElementById("telefono").innerHTML=dato3;
+    //document.getElementById("nacimiento").innerHTML=dato4;
 
     if (dato
          != 0)  {
