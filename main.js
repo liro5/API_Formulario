@@ -12,11 +12,8 @@ function darPersonas() {
 }
 
 function listener() {
-
+    document.getElementById("listaPersonas").innerHTML = "";
     let Personas = request.response;
-
-
-
     for (let i = 0; i < Personas.length; i++) {
         const Persona = Personas[i];
 
@@ -33,6 +30,7 @@ function listener() {
 }
 
 function Agregar() {
+    
     let nombre = document.getElementById("nombre").value;
     let apellido = document.getElementById("apellido").value;
     let direccion = document.getElementById("direccion").value;
@@ -45,6 +43,7 @@ function Agregar() {
     "telefono" : telefono,
     "nacimiento" : nacimiento
     }
+
     let request2 = new XMLHttpRequest();
     request2.addEventListener("load", darPersonas);
     request2.open("POST", "http://104.43.223.38/Personas");
