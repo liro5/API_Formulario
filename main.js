@@ -46,7 +46,16 @@ function Agregar() {
     "telefono" : telefono,
     "nacimiento" : nacimiento
     }
-
+if (persona.nombre.length > 2 &&
+     persona.apellido.length > 2 &&
+      persona.direccion.length > 2 && 
+      persona.telefono.length > 2 &&
+      ) {
+    // boton de eliminar
+    
+} else {
+    
+}
     let request2 = new XMLHttpRequest();
     request2.addEventListener("load", darPersonas);
     request2.open("POST", "http://104.43.223.38/Personas");
