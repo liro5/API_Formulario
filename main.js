@@ -30,7 +30,10 @@ function listener() {
 }
 
 function Agregar() {
-    
+    if (document.getElementById("nombre").required) {
+        
+    }
+
     let nombre = document.getElementById("nombre").value;
     let apellido = document.getElementById("apellido").value;
     let direccion = document.getElementById("direccion").value;
