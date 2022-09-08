@@ -24,6 +24,7 @@ function listener() {
         <td scope='row'>`+ Persona.direccion + `</td>
         <td scope='row'>`+ Persona.telefono + `</td>
         <td scope='row'>`+ Persona.nacimiento + `</td>
+        <td scope='row'>`+ "<span onclick='eliminar("+ Persona.id + ")' class='btn material-symbols-outlined'>delete</span>" + `</td>
         <tr>`
         document.getElementById("listaPersonas").innerHTML += tabla;
     }
@@ -61,5 +62,14 @@ function Agregar() {
     request2.open("POST", "http://104.43.223.38/Personas");
     request2.setRequestHeader("Content-Type", "application/json");
     request2.send(JSON.stringify(persona));
+
+}
+function eliminar(id) {
+    
+    let request3 = new XMLHttpRequest();
+    request3.addEventListener("load", darPersonas);
+    request3.open("DELETE", "http://104.43.223.38/Personas?idpPrsona=" + id);
+    request3.setRequestHeader("Content-Type", "application/json");
+    request3.send();
 
 }
