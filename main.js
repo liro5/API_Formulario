@@ -31,7 +31,7 @@ function listener() {
 
 function Agregar() {
     if (document.getElementById("nombre").required) {
-        
+
     }
 
     let nombre = document.getElementById("nombre").value;
@@ -40,26 +40,26 @@ function Agregar() {
     let telefono = document.getElementById("telefono").value;
     let nacimiento = document.getElementById("nacimiento").value;
     let persona = {
-    "nombre" : nombre,
-    "apellido" : apellido,
-    "direccion" : direccion,
-    "telefono" : telefono,
-    "nacimiento" : nacimiento
+        "nombre": nombre,
+        "apellido": apellido,
+        "direccion": direccion,
+        "telefono": telefono,
+        "nacimiento": nacimiento
     }
-if (persona.nombre.length > 2 &&
-     persona.apellido.length > 2 &&
-      persona.direccion.length > 2 && 
-      persona.telefono.length > 2 &&
+    if (persona.nombre.length > 2 &&
+        persona.apellido.length > 2 &&
+        persona.direccion.length > 2 &&
+        persona.telefono.length > 2 
       ) {
-    // boton de eliminar
-    
-} else {
-    
-}
+        // boton de eliminar
+
+    } else {
+
+    }
     let request2 = new XMLHttpRequest();
     request2.addEventListener("load", darPersonas);
     request2.open("POST", "http://104.43.223.38/Personas");
     request2.setRequestHeader("Content-Type", "application/json");
     request2.send(JSON.stringify(persona));
-    
+
 }
