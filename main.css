@@ -12,3 +12,6 @@
     color: red !important;
 
 }
+table tr td{
+    text-transform: capitalize;
+}

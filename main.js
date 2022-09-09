@@ -1,5 +1,9 @@
 let request = new XMLHttpRequest();
 darPersonas();
+
+document.getElementById("titulo").innerHTML = "Personas";
+document.getElementById("subtitulo").innerHTML = "Lista de Personas";
+
 function darPersonas() {
 
     request.addEventListener("load", listener);
@@ -7,19 +11,31 @@ function darPersonas() {
     request.responseType = "json";
     request.send();
 
-    document.getElementById("titulo").innerHTML = "Personas";
-    document.getElementById("subtitulo").innerHTML = "Lista de Personas";
+
 }
+let Personas = [];
 
 function listener() {
     document.getElementById("listaPersonas").value = "";
-    let Personas = request.response;
+    Personas = request.response;
+    Personas.sort(function (a, b) {
+        if (a.nombre.toUpperCase() > b.nombre.toUpperCase()) {
+            return 1;
+        }
+        if (a.nombre.toUpperCase() < b.nombre.toUpperCase()) {
+            return -1;
+        }
+        // a must be equal to b
+        return 0;
+    });
+    ordenar();
+
     for (let i = 0; i < Personas.length; i++) {
         const Persona = Personas[i];
 
-        let tabla = `<tr>
-        <td scope='row'>`+ Persona.id + `</td>
-        <td scope='row'>`+ Persona.nombre + `</td>
+        let tabla = `<tr>` +
+            // <td scope='row'>`+ Persona.id + `</td>
+            `<td scope='row'>` + Persona.nombre + `</td>
         <td scope='row'>`+ Persona.apellido + `</td>
         <td scope='row'>`+ Persona.direccion + `</td>
         <td scope='row'>`+ Persona.telefono + `</td>
@@ -83,4 +99,11 @@ function limpiarFormulario() {
     document.getElementById("telefono").value = "";
     document.getElementById("nacimiento").value = "";
 
+}
+
+function ordenar() {
+    Personas.forEach(element => {
+        element.nombre = element.nombre.toLowerCase();
+        element.direccion = element.direccion.toLowerCase();
+    });
 }
